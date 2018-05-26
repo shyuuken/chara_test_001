@@ -20,11 +20,12 @@ public class EXT_Controller : MonoBehaviour {
         //  マウスがクリックされた場合
         if (Input.GetMouseButtonDown(0))
         {
-            if(!isAttack)
+            var animator = GetComponent<Animator>();
+            if(!animator.GetCurrentAnimatorStateInfo(0).IsName("atk_001")
+                && !animator.IsInTransition(0)
+            )
             {
-                isAttack = true;
-                //Animatorコンポーネントを取得し、"atk_001_Trigger"をtrueにする
-                GetComponent<Animator>().SetTrigger("atk_001_Trigger");
+                animator.SetTrigger("atk_001_Trigger");
             }
             
         }
