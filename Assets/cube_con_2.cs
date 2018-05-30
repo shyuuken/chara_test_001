@@ -5,12 +5,15 @@ using UnityEngine;
 public class cube_con_2 : MonoBehaviour
 {
 
+
+
     // Use this for initialization
     void Start() { }
 
     //クリックしたオブジェクトを消す
     void OnMouseDown()
     {
+        GameObject.Find("EXT_UNT").GetComponent<EXT_Controller>().LookAt(transform.position);
         Destroy(this.gameObject,0.5f);
     }
 
@@ -18,19 +21,6 @@ public class cube_con_2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //マウスがクリックされた場合
-        if (Input.GetMouseButtonDown(0))
-        {
 
-            //メインカメラ上で　カーソルのあった場所にRayを飛ばす
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-                //Rayが当たるオブジェクトがあった場合はそのオブジェクト名をログに表示
-                Debug.Log(hit.collider.gameObject.name);
-            }
-        }
     }
 }
