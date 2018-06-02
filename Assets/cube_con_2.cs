@@ -5,10 +5,15 @@ using UnityEngine;
 public class cube_con_2 : MonoBehaviour
 {
 
+    public float speed = 1.0f;
 
+    private GameObject player;
 
     // Use this for initialization
-    void Start() { }
+    void Start() {
+        player = GameObject.FindGameObjectWithTag("Player");
+
+    }
 
     //クリックしたオブジェクトを消す
     void OnMouseDown()
@@ -22,5 +27,6 @@ public class cube_con_2 : MonoBehaviour
     void Update()
     {
 
+        
     }
 }

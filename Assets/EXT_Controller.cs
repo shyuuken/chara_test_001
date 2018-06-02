@@ -7,8 +7,14 @@ public class EXT_Controller : MonoBehaviour
     //検知用レイ
     private RaycastHit hit;
 
+    //攻撃用エフェクト
+    public GameObject beam_prehub;
+
 
     bool isAttack;
+
+    
+    
     // Use this for initialization
     void Start()
     {
@@ -38,8 +44,14 @@ public class EXT_Controller : MonoBehaviour
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("atk_001")
                 && !animator.IsInTransition(0))
             {
+                beam_prehub.GetComponent<ParticleSystem>().Play();
                 animator.SetTrigger("atk_001_Trigger");
             }
+
+            /*
+            // 攻撃エフェクトをインスタンス化
+            var obj = Instantiate(beam_prehub, transform.position + transform.forward, Quaternion.identity) as GameObject;
+            */
 
 
             //メインカメラ上で　カーソルのあった場所にRayを飛ばす
@@ -65,5 +77,6 @@ public class EXT_Controller : MonoBehaviour
         }
 
     }
+
 }
 
