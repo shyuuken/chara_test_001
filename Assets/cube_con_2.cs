@@ -7,7 +7,9 @@ public class cube_con_2 : MonoBehaviour
 
     public float speed = 1.0f;
 
-    //private GameObject player;
+    private GameObject player;
+
+    Vector3 m_offset = Vector3.up * 1.0f;
 
     private GameObject wall;
 
@@ -17,8 +19,11 @@ public class cube_con_2 : MonoBehaviour
 
     // Use this for initialization
     void Start() {
-        //player = GameObject.FindGameObjectWithTag("Player");
-        wall = GameObject.FindGameObjectWithTag("DestroyWall");
+        player = GameObject.FindGameObjectWithTag("Player");
+        //wall = GameObject.FindGameObjectWithTag("DestroyWall");
+
+
+        iTween.MoveTo(gameObject, iTween.Hash("position", player.transform.position + m_offset, "speed", speed, "easetype", "easeInOutQuad"));
 
     }
 
